@@ -2,13 +2,7 @@ import * as React from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import {
-    BillboardGraphics,
-    Clock,
-    EllipsoidGraphics,
     Entity,
-    Globe,
-    Model,
-    PathGraphics,
     PolylineGraphics,
     Viewer
 } from "resium";
@@ -41,15 +35,15 @@ export default function App() {
     const [time, setTime] = useState(0);
 
     // 🎞️ Animate time
-    // useEffect(() => {
-    //     let frame;
-    //     const animate = () => {
-    //         setTime((t) => t + 0.016);
-    //         frame = requestAnimationFrame(animate);
-    //     };
-    //     frame = requestAnimationFrame(animate);
-    //     return () => cancelAnimationFrame(frame);
-    // }, []);
+    useEffect(() => {
+        let frame;
+        const animate = () => {
+            setTime((t) => t + 0.016);
+            frame = requestAnimationFrame(animate);
+        };
+        frame = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(frame);
+    }, []);
 
     return (
         <Container maxWidth="sm">
